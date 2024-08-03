@@ -74,6 +74,7 @@ public class TinhDienTich extends HttpServlet {
         String dai_raw = request.getParameter("dai");
         String rong_raw = request.getParameter("rong");
         PrintWriter out = response.getWriter();
+        
         try {
             double dai = Double.parseDouble(dai_raw);
             double rong = Double.parseDouble(rong_raw);
