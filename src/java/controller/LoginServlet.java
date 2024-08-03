@@ -55,7 +55,17 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+    String user = request.getParameter("username");
+    String pass = request.getParameter("password");
+    PrintWriter out = response.getWriter();
+    String ms="";
+    if(user.equals("namtt") && pass.equals("123")){
+        ms="Hello "+user;
+    }else{
+        ms="Nhap lai!";
+    }
+    out.println("<h1>"+ms+"</h1>");
     } 
 
     /** 
