@@ -73,16 +73,17 @@ public class TinhDienTich extends HttpServlet {
 //        processRequest(request, response);
         String dai_raw = request.getParameter("dai");
         String rong_raw = request.getParameter("rong");
-        String ms="";
+        PrintWriter out = response.getWriter();
         try {
-            Double dai = Double.parseDouble(dai_raw);
-            Double rong = Double.parseDouble(rong_raw);
-        } catch (Exception e) {
+            double dai = Double.parseDouble(dai_raw);
+            double rong = Double.parseDouble(rong_raw);
+            out.println(tinh(dai, rong));
+        } catch (NumberFormatException e) {
             System.out.println("Loi: "+e);
         }
         
     }
-    private String tinh(Double a, Double b){
+    private String tinh(double a, double b){
         return "Dien tich la: "+ (a*b);
     }
 
