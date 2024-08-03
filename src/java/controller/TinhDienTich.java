@@ -56,7 +56,7 @@ public class TinhDienTich extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
-        request.getRequestDispatcher("dientich.html").forward(request, response);
+//        request.getRequestDispatcher("dientich.html").forward(request, response);
     }
 
     /**
@@ -70,7 +70,20 @@ public class TinhDienTich extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        String dai_raw = request.getParameter("dai");
+        String rong_raw = request.getParameter("rong");
+        String ms="";
+        try {
+            Double dai = Double.parseDouble(dai_raw);
+            Double rong = Double.parseDouble(rong_raw);
+        } catch (Exception e) {
+            System.out.println("Loi: "+e);
+        }
+        
+    }
+    private String tinh(Double a, Double b){
+        return "Dien tich la: "+ (a*b);
     }
 
     /**
